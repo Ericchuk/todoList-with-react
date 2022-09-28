@@ -12,9 +12,10 @@ function LandingPage() {
             alert("Create an item")
             return
         }
+        setInputValue("");
         setList((prev)=> [...prev, inputValue]);
-        // console.log(list, inputValue);
-        setInputValue(" ")
+        console.log(inputValue);
+        
     }
 
   return (

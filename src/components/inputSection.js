@@ -1,4 +1,5 @@
 function InputSection({setInputValue, onClick}){
+
     return (
         <section className="input-section">
             <aside className="input-section-input">

@@ -1,18 +1,12 @@
 import pen from "./images/pen.png";
 import bin from "./images/bin.png";
 import Noitem from "./noItem";
+import {v4 as uuidv4} from 'uuid'
 
 function ListItems({ list, setList }) {
- 
 
-  function edit(){
-    
-  }
   function deleteitem({id}) {
-    // if(e.target.checked){
-    // console.log(e);
-    // }
-    setList( list.filter((todo) => todo !== id));
+    setList( list.filter((todo) => todo.id !== id));
     alert("Deleted all but i have a bug");
 
   }
@@ -21,17 +15,17 @@ function ListItems({ list, setList }) {
     <div className="list">
       <h1>My To Do List</h1>
       <ul>
-        {list.length > 0 ? list.map((todo, index) => {
+        {list.length > 0 ? list.map((todo) => {
           return (
-            <li key={index}>
+            <li key={uuidv4()}>
               <span>
                 <input type="checkbox" />
                 <p>{todo}</p>
               </span>
 
               <span>
-                <img src={pen} alt="pen" onClick={edit}/>
-                <img src={bin} alt="bin" onClick={deleteitem} />
+                <img src={pen} alt="pen" />
+                <img src={bin} alt="bin" onClick={() => {deleteitem(todo)}} />
               </span>
             </li>
           );
